@@ -1,32 +1,20 @@
-package com.example.demo.service;
-
-import java.util.List;
+package com.example.demo.service.implement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.example.demo.entity.Student;
 import com.example.demo.repository.StudentRepository;
 import com.example.demo.service.StudentService;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 @Service
-public class StudentServiceImpl implements StudentService {
+public class ServiceImplementation implements StudentService {
 
     @Autowired
-    StudentRepository repo;
+    private StudentRepository repo;
 
     @Override
-    // create (or) Insert data
     public Student createData(Student stu) {
         return repo.save(stu);
     }
-
-    @Override
-    // Fetch all records
-    public List<Student> fetchRecord() {
-        return repo.findAll();
-    }
-
 }
